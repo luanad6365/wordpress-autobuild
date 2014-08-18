@@ -1,6 +1,6 @@
 #get ubuntu
 FROM ubuntu:trusty
-MAINTAINER luanad6365@setacinq.com.vn
+MAINTAINER An Dinh Luan <luanad6365@setacinq.com.vn>
 
 # Install LAMP
 RUN apt-get update 
@@ -42,20 +42,5 @@ RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 # Add volumes for MySQL 
 VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
 
-EXPOSE 80 3306
-CMD ["/run.sh"]
-
-# Download latest version of Wordpress into /app
-RUN rm -fr /app && git clone --depth=1 https://github.com/WordPress/WordPress.git /app
-
-# Configure Wordpress to connect to local DB
-ADD wp-config.php /app/wp-config.php
-
-# Modify permissions to allow plugin upload
-RUN chmod -R 777 /app/wp-content
-
-# Add database setup script
-ADD create_mysql_admin_user_2.sh /create_mysql_admin_user_2.sh
-RUN chmod 755 /*.sh
 EXPOSE 80 3306
 CMD ["/run.sh"]
