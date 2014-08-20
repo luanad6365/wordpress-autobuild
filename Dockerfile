@@ -44,7 +44,7 @@ VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
 
 
 # Download latest version of Wordpress into /app
-RUN rm -fr /app && git clone --depth=1 https://kienbd6336-seta:Kevin2seta@bitbucket.org/kienbd6336-seta/setawebsite.git /app
+RUN rm -fr /app && git clone --depth=1 https://luanad6365-seta:20071853@bitbucket.org/luanad6365-seta/setawebsite.git /app
 
 # Configure Wordpress to connect to local DB
 ADD wp-config.php /app/wp-config.php
