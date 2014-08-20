@@ -16,7 +16,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wordpress');
+define('DB_NAME', 'setawebsite');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '--w,=nO-t>g:EOH>e-ZXs!7x(: W4:}1A2$E?Sn9P>TW-[=:u[nc-eQ<vIi<6|wh');
-define('SECURE_AUTH_KEY',  'PlM~WQ/9-~V:-3&be`nxuaghz@JyN!]SzVr_]lAM2b?QH(d(|`.z_;1jIE4kY&f+');
-define('LOGGED_IN_KEY',    'K]6*uCb-m~>zj5C1krtu:>2VT(WlI/Jl5T~Pov2-`r+Zb5s3i6&aIN$*/+k/~sLN');
-define('NONCE_KEY',        '~; xvP`h^{Pl9zaD#/!f@M21BAk0#sKg>*P+=1LV+FY+;HNE)%Y`4(Xq|&})fCj^');
-define('AUTH_SALT',        'A2|G[jvSLB+z dy S/ S>(lLyzxDvJ8(ps1(F%~x]eRD`UHv(h*IDjye+SYV-a;O');
-define('SECURE_AUTH_SALT', '9cv/Hy~a;qr]4)i*udy-/$non@_:CU0SIdm-L[WH^k_}s:Jq[)HV,Wu8na<_;ef3');
-define('LOGGED_IN_SALT',   '{d*4OCrk9x`|cb-4EBK7=ewJ3D]y%z,7mSEd:8?=eP![zD.O`<Uubt-u%@TA+x T');
-define('NONCE_SALT',       'z6G5thFC]JIW]|ZQIBgZ?zBb^!N#3-Un=)`!Xb/,Yd8[2&}.W{ITu?=PE0oZ,<8^');
+define('AUTH_KEY',         '=l72 I,gIGe2[KM^BtJ&4N m:*(],(sj6@LW| 0DR16>ZfQ&kCm-pTOPbo+7vw=H');
+define('SECURE_AUTH_KEY',  'r{CjJ<OD4uF)_/}B!9|;f+QbX!s`(Uu6zR&MNLY9FgsP8h3;Zi>eB3k `[~$l_9/');
+define('LOGGED_IN_KEY',    'q#APEL%pZ vzVdM.Ij./*{8#06QS_wMC9A865z,$s)#[yf=E4go.X4+Jn z=MT!F');
+define('NONCE_KEY',        'YnLnNS[H~A]GWRLamotR dftPjlzzNT6{{{JKwvZ4m+F; 90KX!^A|}<lwj64%kg');
+define('AUTH_SALT',        '64FX?uuSWvt_,;B&-V C)TLU&n`W//x=%U7Id6$cDU0YS!}_U/^2UsYNqUAPk407');
+define('SECURE_AUTH_SALT', 'TUjMuP^$5~cU*-^pD]QA4MCnGjv)9?P;:hHw=<kAh{5hbQ?_%4fqc0{C1/tv0YTB');
+define('LOGGED_IN_SALT',   'FDU>Qv2Zb*TwOt^).gGNiPA]8$h>t_FXE&k^GEd_p*g+7bP%Lb|F};:^7BsA=Jcm');
+define('NONCE_SALT',       ']sOa5@Xnqo0+.le*4P?$#sFgrytA16M.&dHPj[B_5`z>s9yotlEH`7kG3_<dw}?m');
 
 /**#@-*/
 
@@ -88,8 +88,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
-/** change permisssions for plugin installation */
-define("FS_METHOD","direct");
-define("FS_CHMOD_DIR", 0777);
-define("FS_CHMOD_FILE", 0777);

@@ -44,18 +44,24 @@ VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
 
 
 # Download latest version of Wordpress into /app
-RUN rm -fr /app && git clone --depth=1 https://github.com/WordPress/WordPress.git /app
+RUN rm -fr /app && git clone --depth=1 https://kienbd6336-seta:Kevin2seta@bitbucket.org/kienbd6336-seta/setawebsite.git /app
 
 # Configure Wordpress to connect to local DB
 ADD wp-config.php /app/wp-config.php
+RUN chmod 644 /app/wp-config.php
 
 # Modify permissions to allow plugin upload
 RUN chmod -R 777 /app/wp-content
 
 # Add database setup script
+ADD db_product.sql /db_product.sql
+RUN chmod 777 /db_product.sql
 ADD create_mysql_admin_user_2.sh /create_mysql_admin_user_2.sh
 ADD run_2.sh /run_2.sh
 RUN chmod 755 /*.sh
+
+ENV MYSQL_PASS setawebsite
+
 EXPOSE 80 3306
 CMD ["/run.sh"]
 CMD ["/run_2.sh"]
