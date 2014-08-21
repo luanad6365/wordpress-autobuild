@@ -17,6 +17,28 @@ echo "=> Creating MySQL admin user with ${_word} password"
 mysql -uroot -e "CREATE USER 'admin'@'%' IDENTIFIED BY '$PASS'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION"
 
+sleep 5
+
+DATABASE_NAME="setawebsite"
+DB_PATH_SQL="/db_product.sql"
+
+if ! mysql -uroot -e "use $DATABASE_NAME"; then
+    echo "=> creating database $DATABASE_NAME"
+    mysqladmin create $DATABASE_NAME
+    
+    echo "=> Stopping MySQL Server"
+    mysqladmin -uroot shutdown
+
+    sleep 5
+    echo "=> Starting MySQL Server"
+    /usr/bin/mysqld_safe > /dev/null 2>&1 &
+    sleep 5
+    echo "   Started with PID $!"
+    if mysql -uroot -e "use $DATABASE_NAME"; then
+        echo "=> Importing SQL file"
+        mysql -uadmin -p$PASS -D$DATABASE_NAME < "$DB_PATH_SQL"
+    fi
+fi
 
 echo "=> Done!"
 
